@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+</head>
+<body>
+    <div class='bold-line'></div>
+<div class='container'>
+  <div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <div class='welcome'>Registration</div>
+      <div class='subtitle'></div>
+      <div class='input-fields'>
+        <form action="Signup" method="POST">
+          {% csrf_token %}
+          <input type='text' placeholder='Username' name="username" class='input-line full-width'>
+          <input type='email' placeholder='Email' name="email" class='input-line full-width'>
+          <input type='password' placeholder='Password' name="password" class='input-line full-width'>
+          <input type='password' placeholder='Confirm Password' name="rpassword" class='input-line full-width'>
+        
+      </div>
+      {% for msg in messages %}
+      <div class='spacing'><span class='highlight'>{{msg}}</span></div>
+      {% endfor %}
+      <div class="group">
+        <input type="submit" class="button ghost-round full-width" value="Sign Up">
+      </div>
+    </form>  
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
